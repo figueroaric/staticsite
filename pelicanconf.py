@@ -29,6 +29,11 @@ DEFAULT_PAGINATION = 5
 
 #pelicanconf.py
 
+MARKUP = ("md", "ipynb")
+
+from pelican_jupyter import markup as nb_markup
+
+
 PLUGIN_PATHS = ['pelican-plugins']
 
 THEME = 'pelican-themes/pelican-bootstrap3'
@@ -36,9 +41,12 @@ BOOTSTRAP_THEME = 'flatly'
 
 #PLUGIN_PATHS = ['/path/to/git/pelican-plugins']
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
-PLUGINS = ['i18n_subsites']
+PLUGINS = ['i18n_subsites', 'series','tag_cloud','liquid_tags.youtube','liquid_tags.notebook','liquid_tags.include_code','render_math','pelican-ipynb.markup',nb_markup]
 
 I18N_TEMPLATES_LANG = 'en'
 
+DELETE_OUTPUT_DIRECTORY = True
+
+IGNORE_FILES = [".ipynb_checkpoints"]
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
